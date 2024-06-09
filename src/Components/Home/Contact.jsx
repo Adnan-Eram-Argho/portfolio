@@ -89,7 +89,7 @@ function Contact() {
           email
         </div>
         <div className="collapse-content">
-          <p>arghoadnaneram@gmail.com</p>
+          <p className="text-sm">arghoadnaneram@gmail.com</p>
         </div>
       </div>
       <div className="collapse collapse-arrow bg-base-200 w-2/3 m-auto">

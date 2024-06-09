@@ -9,7 +9,7 @@ function Hero() {
         <h1 className="text-3xl lg:text-3xl font-bold mb-2">Adnan Eram Argho<span className='text-secondary font-5xl'>.</span></h1>
         <hr  className='w-10 text-secondary border border-secondary'/>
         <p className="text-sm lg:text-lg mb-4">Full stack Web Developer | 4+ Years Experience </p>
-        <button className="btn btn-outline btn-secondary">Contact me</button>
+        <a href='#contact' className="btn btn-outline btn-secondary">Contact me</a>
       </div>
       {/* Image Section */}
       <div className="mt-6 lg:mt-0">
