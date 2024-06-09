@@ -1,13 +1,13 @@
 {
-"project":[
+  "project": [
     {
-      "_id": "1",
+      "id": "1",
       "title": "TheDailyPulse",
-      "description": "TheDailyPulse is a full stack project using react,tailwind,node,mongodb,ecpress. it is a newspaper website where you can see the news and if you login you can also create,update,read and delete the newws",
+      "description": "TheDailyPulse is a full stack project using react,tailwind,node,mongodb,ecpress. it is a newspaper website where you can see the news and if you login you can also create,update,read and delete the new.",
       "link": "https://the-daily-pulse.vercel.app/"
     },
     {
-      "_id": "2",
+      "id": "2",
       "title": "Cool tools",
       "description": "This is an E-Commerce site for selling tools . It is a full stack website.if you login you can also create,update,read and delete the Tools.you can aslo buy and edit your curt here",
       "link": "https://soft-cuchufli-558411.netlify.app//"

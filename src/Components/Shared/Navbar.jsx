@@ -1,7 +1,19 @@
 import { Link, useLocation } from "react-router-dom"
+import auth from "../../Firebase/firebase.config";
+import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 
 function Navbar() {
     const location = useLocation();
+
+    const [user] = useAuthState(auth);
+const [signOut] = useSignOut(auth);
+
+    const handleSignOut =async () => {
+        const success = await signOut();
+        if (success) {
+          alert('You are signed out');
+        }
+      }
   return (
     <div className="navbar bg-base-100 bg-opacity-85  mt-0 sticky top-0 z-10">
     <div className="navbar-start">
@@ -12,16 +24,27 @@ function Navbar() {
         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
           <li><Link to={'about'}>About me</Link></li>
           {
-            location?.pathname== "/about" ?   <></>  : <li><a href="#skills">Skills</a></li>
+            location?.pathname== "/about" || location?.pathname=='/login'?   <></>  : <li><a href="#skills">Skills</a></li>
           }
           {
-            location?.pathname== "/about" ?   <></>  : <li><a href="#projects">Projects</a></li>
+            location?.pathname== "/about" || location?.pathname=='/login'?   <></>  : <li><a href="#projects">Projects</a></li>
         }
           {
-            location?.pathname== "/about" ?   <></>  : <li><a href="#contact">Contacts</a></li>
+            location?.pathname== "/about" || location?.pathname=='/login'?   <></>  : <li><a href="#contact">Contacts</a></li>
           }
   
-          <li className="navbar-end"><button>login</button></li>
+  {
+                user?.email ?
+                <>
+               <Link to="dashboard" className="btn mr-2 mb-2 btn-outline btn-secondary"> Dashboard</Link>
+               <button className="btn btn-outline btn-secondary" onClick={handleSignOut}> sign out</button>
+                </>
+                :
+                <>
+                 <Link to={'login'} className="btn btn-outline btn-secondary">Login</Link>
+                
+                </>
+            }
         </ul>
       </div>
       <Link to={'/'} className="btn btn-ghost text-xl">A<span className="text-secondary">E</span>A</Link>
@@ -30,16 +53,28 @@ function Navbar() {
       <ul className="menu menu-horizontal px-1">
         <li><Link to={'about'}>About me</Link></li>
         {
-            location?.pathname== "/about" ?   <></>  : <li><a href="#skills">Skills</a></li>
+            location?.pathname== "/about" || location?.pathname=='/login'?   <></>  : <li><a href="#skills">Skills</a></li>
         }
         {
-            location?.pathname== "/about" ?   <></>  : <li><a href="#projects">Projects</a></li>
+            location?.pathname== "/about" || location?.pathname=='/login'?   <></>  : <li><a href="#projects">Projects</a></li>
         }
-                  {
-            location?.pathname== "/about" ?   <></>  : <li><a href="#contact">Contacts</a></li>
+           {
+            location?.pathname== "/about" || location?.pathname=='/login'?   <></>  : <li><a href="#contact">Contacts</a></li>
           }
        
-       <li> <button className="btn"> Login</button></li>
+       {
+                user?.email ?
+                <>
+               <Link to="dashboard" className="btn mr-2 btn-outline btn-secondary"> Dashboard</Link>
+               <button className="btn btn-outline btn-secondary" onClick={handleSignOut}> sign out</button>
+                </>
+                :
+                <>
+                 <Link to={'login'} className="btn btn-outline btn-secondary">Login</Link>
+                
+                </>
+            }
+       
       </ul>
     </div>
    
