@@ -23,14 +23,14 @@ function EditProject() {
         // authorization: `bearer ${token}`,
       }
     };
-    await axios.patch(`http://localhost:3000/project/${id}`, newsData, config);
+    await axios.patch(`https://portfolio-server-phi-pearl.vercel.app/project/${id}`, newsData, config);
     toast.success('Successfully edited!');
   };
 
   useEffect(() => {
     async function load() {
       try {
-        const newsData = await axios.get(`http://localhost:3000/project/${id}`);
+        const newsData = await axios.get(`https://portfolio-server-phi-pearl.vercel.app/project/${id}`);
         setProjects(newsData?.data);
       } catch (error) {
         console.error("Error loading data", error);
@@ -84,7 +84,7 @@ console.log(projects?.title)
         <div className="mb-4">
           <input
             type="submit"
-            value={"Add News"}
+            value={"Edit Project"}
             className="w-full py-5 px-7 btn btn-outline btn-secondary"
           />
         </div>

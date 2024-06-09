@@ -8,7 +8,7 @@ function BaseDashboard() {
     const [projects,setProjects] = useState()
     useEffect(()=>{
        async function load(){
-        const projectsData =await axios.get('http://localhost:3000/project');
+        const projectsData =await axios.get('https://portfolio-server-phi-pearl.vercel.app/project');
         setProjects(projectsData?.data)
         }
         load()

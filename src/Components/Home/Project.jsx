@@ -9,7 +9,8 @@ function Project() {
 
     useEffect(()=>{
 async function load(){
-const Allprojects  = await axios.get("http://localhost:3000/project")
+const Allprojects  = await axios.get("https://portfolio-server-phi-pearl.vercel.app/project")
+console.log(Allprojects?.data)
 setProjects(Allprojects?.data)
 }
 load()

@@ -23,7 +23,7 @@ function AddProject() {
         }
       }
   
-     const result=  await axios.post("http://localhost:3000/project",newsData,config).then() 
+     const result=  await axios.post("https://portfolio-server-phi-pearl.vercel.app/project",newsData,config).then() 
      console.log(result)
      toast.success('Successfully added!')
     }
@@ -66,7 +66,7 @@ function AddProject() {
       <input
         type="submit"
         
-        value={"Add News"}
+        value={"Add Project"}
         className="w-full py-5 px-7 btn btn-outline btn-secondary"
       />
     </div>

@@ -14,11 +14,11 @@ function DashboardCards({project}) {
       }
     }
 
-      const del = await axios.delete(`http://localhost:3000/project/${project?.id}`,config);
+      const del = await axios.delete(`https://portfolio-server-phi-pearl.vercel.app/project/${project?._id}`,config);
       console.log(del)
       if(del){
        
-        toast.success('Successfully edited!')
+        toast.success('Successfully Deleted!')
 
       }
      }
@@ -32,7 +32,7 @@ function DashboardCards({project}) {
       <a href={project?.link} target="_blank" rel="noopener noreferrer" className="btn btn-outline btn-secondary my-5">View Project</a>
     </div>
     <div className="flex flex-wrap gap-2">
-    <Link to={`/dashboard/edit-project/${project?.id}`} className="btn btn-outline btn-secondary my-2">Edit Project</Link>
+    <Link to={`/dashboard/edit-project/${project?._id}`} className="btn btn-outline btn-secondary my-2">Edit Project</Link>
     <button className="btn btn-outline btn-secondary my-2" onClick={deleteElement}>Delete Project</button>
     </div>
   </div>
