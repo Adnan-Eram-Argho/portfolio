@@ -20,7 +20,7 @@ function Hero() {
         <h2 className='text-secondary text-2xl'>Introduction</h2>
         <h2 className="text-xl lg:text-3xl font-semibold mb-2"> Full Stack Web Developer,MERN Stack</h2>
         <p className="text-sm lg:text-lg">A self-taught developer from Bangladesh. Passionate about continuous learning and problem-solving.</p>
-        <button className="btn btn-outline btn-secondary my-5">Download Resume</button>
+        <a href='https://drive.google.com/file/d/17FHvdlAVn2pfSnrdDa2Y3rZVeS993ADt/view' className="btn btn-outline btn-secondary my-5" target='_blank'>Download Resume</a>
       </div>
     </div>
   </div>
