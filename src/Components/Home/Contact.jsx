@@ -107,7 +107,7 @@ function Contact() {
           LiknedIn
         </div>
         <div className="collapse-content">
-          <a href="https://www.linkedin.com/in/adnan-eram-argho-67b66a214/" className="text-blue-400">Click here to visit my linkedin</a>
+          <a href="https://www.linkedin.com/in/md-adnan-eram-argho/" className="text-blue-400">Click here to visit my linkedin</a>
         </div>
       </div>
     </div>
