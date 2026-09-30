@@ -1994,68 +1994,7 @@
         );
       });
 
-      // ========== CONTACT FORM (FormSubmit AJAX → your inbox) ==========
-      const FORMSUBMIT_ENDPOINT =
-        "https://formsubmit.co/ajax/arghoadnaneram@gmail.com";
-      document
-        .getElementById("contact-form")
-        .addEventListener("submit", async (e) => {
-          e.preventDefault();
-          const form = e.target;
-          const toast = document.getElementById("toast");
-          const toastText = document.getElementById("toast-text");
-          const toastGlyph = document.getElementById("toast-glyph");
-          const btn = form.querySelector('button[type="submit"]');
-          const origBtn = btn.innerHTML;
-          toast.classList.remove("toast-error");
-          btn.disabled = true;
-          btn.innerHTML = "<span>Sending…</span>";
-          const fd = new FormData(form);
-          const subj = (
-            (form.elements.subject && form.elements.subject.value) ||
-            ""
-          ).trim();
-          fd.set(
-            "_subject",
-            subj ? `Portfolio: ${subj}` : "New message from portfolio",
-          );
-          try {
-            const res = await fetch(FORMSUBMIT_ENDPOINT, {
-              method: "POST",
-              body: fd,
-              headers: { Accept: "application/json" },
-            });
-            const data = await res.json().catch(() => ({}));
-            const ok =
-              res.ok && (data.success === true || data.success === "true");
-            if (ok) {
-              toastGlyph.textContent = "✓";
-              toastGlyph.className =
-                "shrink-0 mt-0.5 text-lg leading-none text-green-400";
-              toastText.textContent =
-                "Message sent. Check your inbox for a reply soon.";
-              form.reset();
-            } else {
-              throw new Error(data.message || "Request failed");
-            }
-          } catch {
-            toast.classList.add("toast-error");
-            toastGlyph.textContent = "✕";
-            toastGlyph.className =
-              "shrink-0 mt-0.5 text-lg leading-none text-red-400";
-            toastText.textContent =
-              "Could not send from the browser. Email me directly at arghoadnaneram@gmail.com";
-          }
-          btn.disabled = false;
-          btn.innerHTML = origBtn;
-          lucide.createIcons();
-          toast.classList.add("show");
-          clearTimeout(window.__toastTimer);
-          window.__toastTimer = setTimeout(
-            () => toast.classList.remove("show"),
-            6000,
-          );
-        });
+
 
       // ========== THREE.JS HERO ==========
       try {
